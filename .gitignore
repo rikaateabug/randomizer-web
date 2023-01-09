@@ -83,3 +83,9 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+base.html
+example.html
+index - Copy.html
+randomized_modified.html
+randomized_unchanged.html
