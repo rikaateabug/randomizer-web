@@ -82,14 +82,12 @@
 <img src="./MMR-2023-01-08.png" class="img-fluid" alt="...">
 <br/>
 <h3 class="pl-2">01-08-2023</h3>
-<label class="pt-1"><b>Version: </b></label><span>1.14.0.16</span><br/>
+<label class="pt-1"><b>Version: </b></label><span>1.14.0.16</span>
+<!-- <br/>
 <br/>
-<label class="pt-1"><b>Seed: </b></label><span>120049609</span><br/>
+ --><label class="pt-1"><b>Seed: </b></label><span>120049609</span><br/>
 <br/>
 <div class="pt-3">
-<!-- <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-View Settings
-  </a> -->
   <button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     View Settings:
   </button>
@@ -103,6 +101,7 @@ View Settings
 <br/>
 <button type="button" onclick="toggleDarkLight()" title="Toggle dark/light mode">Toggle Dark Theme</button>
 <br/>
+<button type="button" onclick="nullSpoilers()" title="Set Spoiler Log to null">Null the Spoiler Log</button>
 <br/>
 <label><b>Spoiler Log State: </b></label><input id="spoilerLogState" type="text"/><br/>
 <br/>
@@ -2209,8 +2208,8 @@ View Settings
     <td class="spoiler itemname"> <span data-content="Red Rupee"></span></td>
  </tr>
  </table>
-<h2>Item Locations</h2>
-<table border="1" id="item-locations">
+<h2 class="pt-4">Item Locations</h2>
+<table border="1" id="item-locations" class="pt-2">
  <tr>
      <th>Item</th>
      <th></th>
@@ -3612,8 +3611,8 @@ View Settings
     <td class="spoiler newlocation"> <span data-content="Boss Blue Warp"></span></td>
  </tr>
 </table>
-<h2>Gossip Stone Hints</h2>
-<table border="1">
+<h2 class="pt-5">Gossip Stone Hints</h2>
+<table border="1" class="pt-2">
     <tr>
         <th>Gossip Stone</th>
         <th>Message</th>
@@ -3930,6 +3929,7 @@ View Settings
     
     var segmentSize = 16;
     var firstRunCompleted = false;
+    var emptyRecord = '1-0-0-0-0-4000-0-0-0-0-0-0-0-0-0-0-0-3c-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0';
     function saveItems() {
         var segments = [];
         for (var i = 0; i < logic.length; i++) {
@@ -3943,7 +3943,17 @@ View Settings
               return s.toString(16);
             }).join("-");
             var saveInput = document.querySelector("#spoilerLogState");
-            saveInput.value = saveString;
+            // console.log("[Before] SaveString: '" + saveString 
+            //   + "', SaveInput: '" + saveInput + "' ");
+            // saveInput.value = saveString;
+            // console.log("[After] SaveString: '" + saveString 
+            //   + "', SaveInput: '" + saveInput + "' ");
+
+
+             // (latestSave = null,
+             //   saveInput = )
+
+
 
             if ( firstRunCompleted ) {
               localStorage.setItem('save-data', saveString);
@@ -3951,6 +3961,16 @@ View Settings
             } else {
               console.log("Not Updating save-data (next time): " + saveString);
               firstRunCompleted = true;
+              // if ( saveString === emptyRecord ) {
+              //   console.log('there was no save-data so we\'ll save and restart');
+              //   //localStorage.setItem('save-data', saveString);
+              //   //location.reload();
+              // }
+              var latestSave = localStorage.getItem('save-data');
+              if ( latestSave === "null" || latestSave == null || latestSave == "" ) {
+                console.log('latestSave is null, saving the default');
+                localStorage.setItem('save-data', saveString);
+              }
             }
           }
 
@@ -4160,6 +4180,12 @@ View Settings
       //localStorage.setItem('save-data', '');
     //$("#spoilerLogState").val('');
     //loadItems();
+  }
+
+  function nullSpoilers() {
+    console.log('nullifying spoilers');
+    localStorage.setItem('save-data', null);
+    location.reload();
   }
 
   function resetSpoilers() {
