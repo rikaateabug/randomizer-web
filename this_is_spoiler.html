@@ -66,19 +66,47 @@
 
 
     #spoilerLogState { width: 560px; }
+
+    input[type=checkbox] {
+      min-width: 1.2em;
+      min-height: 1.2em;
+      margin-left: 1em;
+      margin-top: .5em;
+      margin-bottom: .5em;
+      margin-right: 1em;
+    }
 </style>
 </head>
-<body class="light-mode">
-<label><b>Version: </b></label><span>1.14.0.16</span><br/>
-<label><b>Settings: </b></label><code style="word-break: break-all;">{"StrayFairyMode":"Default","UpdateShopAppearance":true,"AddSongs":true,"SpeedupLabFish":true,"SmallKeyMode":"Default","BossKeyMode":"Default","UserLogicFileName":"","CloseCows":true,"ArrowCycling":true,"CritWiggleDisable":false,"DrawHash":true,"ElegySpeedup":true,"FastPush":true,"IceTrapQuirks":false,"UpdateWorldModels":true,"OcarinaUnderwater":true,"QuestItemStorage":true,"ContinuousDekuHopping":false,"ProgressiveUpgrades":true,"LogicMode":"Glitched","EnabledTricks":[],"RandomizeDungeonEntrances":true,"RandomizeEnemies":false,"StartingItemMode":"None","CustomItemListString":"--------------------1fffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff","CustomStartingItemListString":"--","CustomJunkLocationsString":"1c000-------------------------200000-------1","IceTraps":"None","IceTrapAppearance":"MajorItems","DamageMode":"Default","DamageEffect":"Default","MovementMode":"Default","FloorType":"Default","NutandStickDrops":"Default","ClockSpeed":"Default","HideClock":false,"BlastMaskCooldown":"VeryShort","EnableSunsSong":true,"AllowFierceDeityAnywhere":true,"ByoAmmo":false,"DeathMoonCrash":true,"ShortenCutsceneSettings":{"General":"BlastMaskThief, BoatArchery, FishermanGame, MilkBarPerformance, HungryGoron, TatlInterrupts, FasterBankText, EverythingElse","BossIntros":"Odolwa, Goht, Gyorg, Twinmold, Majora, Wart, IgosDuIkana, Gomess"},"QuickTextEnabled":true,"Character":"LinkMM","GossipHintStyle":"Random","FreeHints":true,"ClearHints":false,"PreventDowngrades":true,"UpdateChests":true,"FixEponaSword":true,"EnablePictoboxSubject":true,"SpeedupBeavers":true,"SpeedupDampe":true,"SpeedupDogRace":true,"SpeedupBank":true}</code><br/>
-<label><b>Seed: </b></label><span>120049609</span><br/>
+<body class="pl-3 light-mode">
+<h2 class="pt-2">Majora's Mask Randomizer</h2>
+<img src="./MMR-2023-01-08.png" class="img-fluid" alt="...">
+<br/>
+<h3 class="pl-2">01-08-2023</h3>
+<label class="pt-1"><b>Version: </b></label><span>1.14.0.16</span><br/>
+<br/>
+<label class="pt-1"><b>Seed: </b></label><span>120049609</span><br/>
+<br/>
+<div class="pt-3">
+<!-- <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+View Settings
+  </a> -->
+  <button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    View Settings:
+  </button>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    >{"StrayFairyMode":"Default","UpdateShopAppearance":true,"AddSongs":true,"SpeedupLabFish":true,"SmallKeyMode":"Default","BossKeyMode":"Default","UserLogicFileName":"","CloseCows":true,"ArrowCycling":true,"CritWiggleDisable":false,"DrawHash":true,"ElegySpeedup":true,"FastPush":true,"IceTrapQuirks":false,"UpdateWorldModels":true,"OcarinaUnderwater":true,"QuestItemStorage":true,"ContinuousDekuHopping":false,"ProgressiveUpgrades":true,"LogicMode":"Glitched","EnabledTricks":[],"RandomizeDungeonEntrances":true,"RandomizeEnemies":false,"StartingItemMode":"None","CustomItemListString":"--------------------1fffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff-ffffffff","CustomStartingItemListString":"--","CustomJunkLocationsString":"1c000-------------------------200000-------1","IceTraps":"None","IceTrapAppearance":"MajorItems","DamageMode":"Default","DamageEffect":"Default","MovementMode":"Default","FloorType":"Default","NutandStickDrops":"Default","ClockSpeed":"Default","HideClock":false,"BlastMaskCooldown":"VeryShort","EnableSunsSong":true,"AllowFierceDeityAnywhere":true,"ByoAmmo":false,"DeathMoonCrash":true,"ShortenCutsceneSettings":{"General":"BlastMaskThief, BoatArchery, FishermanGame, MilkBarPerformance, HungryGoron, TatlInterrupts, FasterBankText, EverythingElse","BossIntros":"Odolwa, Goht, Gyorg, Twinmold, Majora, Wart, IgosDuIkana, Gomess"},"QuickTextEnabled":true,"Character":"LinkMM","GossipHintStyle":"Random","FreeHints":true,"ClearHints":false,"PreventDowngrades":true,"UpdateChests":true,"FixEponaSword":true,"EnablePictoboxSubject":true,"SpeedupBeavers":true,"SpeedupDampe":true,"SpeedupDogRace":true,"SpeedupBank":true}
+  </div>
+</div>
+</div>
+
 <br/>
 <button type="button" onclick="toggleDarkLight()" title="Toggle dark/light mode">Toggle Dark Theme</button>
 <br/>
 <br/>
-<button type="button" onclick="resetSpoilerLog()" title="Reset Spoiler Log">Reset Spoiler Log</button>
-<br/>
 <label><b>Spoiler Log State: </b></label><input id="spoilerLogState" type="text"/><br/>
+<br/>
+<button type="button" onclick="resetSpoilerLog()" title="Reset Spoiler Log">Reset Spoiler Log</button>
 <h2 class="pt-3">Dungeon Entrance Replacements</h2>
 <table border="1" class="item-replacements">
     <tr>
